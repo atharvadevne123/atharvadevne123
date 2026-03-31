@@ -1,6 +1,6 @@
 # 💫 About Me
 
-👋 Hi, I'm **Atharva Devne** — a Data Analyst with ~4 years of experience turning complex datasets into clear, actionable insights that drive real business decisions.
+👋 Hi, I'm **Atharva Devne** — Analyst with 4 years of experience turning complex datasets into clear, actionable insights that drive real business decisions.
 
 📊 I specialize in:
 - Designing and optimizing complex **SQL queries** across multi-source databases to consolidate and accelerate reporting
