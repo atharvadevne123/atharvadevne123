@@ -1,0 +1,187 @@
+%-------------------------
+% Resume in Latex
+% Author : Atharva Devne
+%------------------------
+
+\documentclass[Sans-serif,10.5 pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+%\input{glyphtounicode}
+
+\usepackage{lipsum}
+
+\usepackage{geometry}
+ \geometry{
+ letterpaper,
+ left=0.2in,
+ right=0.2in,
+ top=0.4in,
+ bottom=0.1in
+ }
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-8pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
+
+%\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{
+  \item\justifying\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-8pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+%----------HEADING----------
+\vspace{-2mm}
+\begin{center}
+    \textbf{\Huge \scshape Atharva Devne} \\ \vspace{1pt}
+    \href{mailto:devneatharva@gmail.com}{{devneatharva@gmail.com}} $|$
+    \href{https://www.linkedin.com/in/atharvadevne}{\textbf{\underline{LinkedIn}}} $|$
+    \href{https://github.com/atharvadevne123}{\textbf{\underline{GitHub}}} $|$
+    \small (773) 949-3294
+\end{center}
+\vspace{-4.5mm}
+
+%-----------EDUCATION-----------
+\vspace{-1mm}
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Illinois Chicago}{Chicago, IL, USA}
+      {Master of Science in Management Information Systems (GPA: 3.8/4.0)}{Aug 2023 -- May 2025}
+      \resumeItemListStart
+        \resumeItem{Coursework: Advanced DBMS, Data Warehousing, System Analysis \& Design, Business Data Visualization, Data Mining}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Maharashtra Institute of Technology}{Pune, India}
+      {Bachelor of Technology in Computer Science Engineering (GPA: 3.8/4.0)}{Aug 2020 -- May 2023}
+      \resumeItemListStart
+        \resumeItem{Coursework: DBMS, OOP using Java \& C++, Artificial Intelligence, Software Modeling \& Design, Computer Networks \& Security}
+      \resumeItemListEnd\vspace{-0.5mm}
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\vspace{-2.75mm}
+\section{Work Experience}
+  \resumeSubHeadingListStart\vspace{-0.5mm}
+  \resumeProjectHeading
+  {\textbf{Community Dreams Foundation, Sebring, Florida $|$ Data Analyst $|$ Sept 2025 -- Present}}{}
+  \resumeItemListStart
+    \resumeItem{Designed 8 Power BI dashboards with UX-centered layouts, DAX measures, and Power Query transformations for 5+ departments, reducing manual reporting time by 40\% and improving KPI visibility for leadership.}
+    \resumeItem{Optimized Snowflake SQL queries and stored procedures supporting 12+ operational reports, cutting average query runtime by 35\% through indexing strategies and query restructuring to meet reporting SLAs.}
+    \resumeItem{Gathered requirements from 10+ business partners, built Figma wireframe prototypes for 3 report designs, and conducted user testing sessions that reduced post-launch revision cycles by 50\%.}
+  \resumeItemListEnd\vspace{-1.2mm}
+\resumeProjectHeading
+{\textbf{Chiesta, Jersey City, New Jersey $|$ Technical Consultant -- Project Intern $|$ Aug 2023 -- Jul 2024} $|$ \href{https://github.com/atharvadevne123/GenAI-Medical-Policy-Analysis}{\textbf{\underline{Link}}}}{}
+\resumeItemListStart
+\resumeItem{Engineered a Python and LangChain NLP pipeline extracting 18 coverage fields from 120+ medical policy PDFs across 12 payer organizations using 4,000-character batch processing with retry logic.}
+\resumeItem{Deployed a Flask REST API and policy comparison dashboard with AWS S3 batch ingestion, cutting manual analyst review time by 60\%.}\vspace{-4mm}
+\resumeItem{Scoped system requirements with stakeholders across 12 payer organizations, converting business objectives into technical specifications for the AI document analysis pipeline.}
+\resumeItem{Evaluated 4 database technologies on latency, scalability, and cost to select the optimal architecture for medical policy metadata storage.}
+\resumeItemListEnd\vspace{-1.2mm}
+  \resumeProjectHeading
+  {\textbf{HiFi Technology Solutions, Pune, India $|$ Data Analyst $|$ May 2021 -- Jun 2023}}{}
+  \resumeItemListStart
+    \resumeItem{Developed Tableau and Power BI dashboards consolidating ERP data for Sales, Marketing, and Finance teams, reducing strategic decision cycles by 30\% across 3 business units.}
+    \resumeItem{Authored complex SQL queries, stored procedures, and performance-tuned reports across MySQL and PostgreSQL, cutting query response times by 20\% for 15+ analysts.}
+    \resumeItem{Documented 20+ report configurations, data dictionaries, and Snowflake SQL workflows, standardizing pipelines across 15+ reporting processes and raising data accuracy by 25\%.}
+  \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\vspace{-3.5mm}
+\section{Projects}
+\vspace{-0.2mm}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{Enterprise Analytics Platform} $|$ \emph{Python, Apache Spark, Airflow, Kafka, PostgreSQL, FastAPI} $|$ \href{https://github.com/atharvadevne123/Enterprise-Analytics-Platform}{\textbf{\underline{Link}}}}{2025}
+      \resumeItemListStart
+        \resumeItem{Architected a 3-domain analytics warehouse on Apache Spark and Kafka, orchestrated by Airflow DAGs across E-Commerce, Supply Chain, and Financial pipelines with automated data-quality checks.}
+        \resumeItem{Exposed demand forecasting (ARIMA) and Z-score anomaly detection through 9 FastAPI endpoints, enabling real-time KPI queries across all 3 business domains.}
+      \resumeItemListEnd
+    \resumeProjectHeading
+      {\textbf{SENTINELLA -- Real-Time Fraud Detection} $|$ \emph{Python, XGBoost, LightGBM, FAISS, Flask, AWS} $|$ \href{https://github.com/atharvadevne123/FraudDetectionAI}{\textbf{\underline{Link}}}}{2026}
+      \resumeItemListStart
+        \resumeItem{Trained an XGBoost + LightGBM + Random Forest ensemble on 50,000 transactions with 33 engineered features, achieving 0.947 AUC-ROC after SMOTE correction for 2\% fraud-class imbalance.}
+        \resumeItem{Operationalized SHAP and FAISS semantic search for natural-language fraud explanations, with Evidently drift monitoring and automated Power BI export across 96 daily Airflow pipeline runs.}
+      \resumeItemListEnd
+    \resumeProjectHeading
+      {\textbf{Clinical Trial Cohort Matching System} $|$ \emph{Python, FastAPI, XGBoost, spaCy, PostgreSQL, Metabase} $|$ \href{https://github.com/atharvadevne123/Clinical-Trial-Cohort-Matching-System}{\textbf{\underline{Link}}}}{2026}
+      \resumeItemListStart
+        \resumeItem{Developed a patient-trial matching pipeline across 300 patients and 25 trials using ICD-10 rule evaluation, spaCy NLP, and XGBoost enrollment probability scoring on 14 features.}
+        \resumeItem{Configured a Metabase analytics dashboard and async recruitment engine with ML probability threshold filtering, processing 7,500 patient-trial match pairs for clinical trial coordinators.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-1.5mm}
+
+%-----------SKILLS-----------
+\vspace{-1mm}
+\section{Skills}
+  \begin{itemize}[leftmargin=0.15in, label={}]\vspace{0mm}
+    \small{\item{
+      \textbf{BI \& Visualization}{: Power BI (DAX, Power Query, Data Modeling), Tableau, Figma (Wireframing \& Prototyping), SSRS, Metabase, Data Visualization} \\
+      \textbf{Languages \& Querying}{: Python, SQL (Complex Queries, Stored Procedures, Query Tuning), R} \\
+      \textbf{Databases}{: Snowflake, PostgreSQL, MySQL, SQL Server, MongoDB} \\
+      \textbf{Cloud \& DevOps}{: AWS (EC2, S3, RDS), Azure, Docker, GitHub Actions} \\
+      \textbf{Data Engineering}{: ETL Pipelines, Apache Airflow, Apache Spark, Apache Kafka, Data Validation} \\
+      \textbf{Tools}{: Pandas, NumPy, scikit-learn, Git, Jira} \\
+    }}
+  \end{itemize}\vspace{-3mm}
+
+\end{document}
