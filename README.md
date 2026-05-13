@@ -1,6 +1,6 @@
 # 💫 About Me
 
-👋 Hi, I'm **Atharva Devne** — Data & ML Engineer with 4+ years of experience building end-to-end data systems: from automated ETL pipelines and real-time analytics platforms to production-grade ML APIs with drift detection, explainability, and CI/CD.
+👋 Hi, I'm **Atharva Devne**, a Data and ML Engineer with 4+ years of experience building data systems: automated ETL pipelines, real-time analytics platforms, and production-grade ML APIs with drift detection, explainability, and CI/CD.
 
 📊 I specialize in:
 - Designing and optimizing complex **SQL queries** across multi-source databases to consolidate and accelerate reporting
@@ -12,14 +12,14 @@
 - Implementing **data validation and quality standards** to strengthen downstream reporting reliability
 - Translating ambiguous business questions into measurable **KPIs and data strategies**
 
-🎓 MS in **Management Information Systems** — University of Illinois | BS in **Computer Science** — Maharashtra Institute of Technology
+🎓 MS in **Management Information Systems**, University of Illinois Chicago | BTech in **Computer Science**, Maharashtra Institute of Technology, Pune
 
 ---
 
 ## 🔭 What I'm Working On
-- **[Enterprise Analytics Platform](https://github.com/atharvadevne123/Enterprise-Analytics-Platform)** — Unified E-Commerce, Supply Chain & Financial Intelligence on Apache Spark, Airflow, Kafka, FastAPI
-- **[FraudDetectionAI](https://github.com/atharvadevne123/FraudDetectionAI)** — Real-time fraud detection with XGBoost + LightGBM + RF ensemble, RAG explainability via FAISS + Claude, AWS deployment
-- **[Price-Prophet](https://github.com/atharvadevne123/Price-Prophet)** — ML-powered dynamic pricing engine with drift detection, model monitoring, and FastAPI REST API
+- **[Enterprise Analytics Platform](https://github.com/atharvadevne123/Enterprise-Analytics-Platform)** — Unified E-Commerce, Supply Chain, and Financial Intelligence on Apache Spark, Airflow, Kafka, and FastAPI
+- **[SENTINELLA: Real-Time Fraud Detection](https://github.com/atharvadevne123/FraudDetectionAI)** — XGBoost + LightGBM + RF ensemble with 0.947 AUC-ROC, RAG explainability via FAISS, deployed on AWS
+- **[Clinical Trial Cohort Matching System](https://github.com/atharvadevne123/Clinical-Trial-Cohort-Matching-System)** — AI-powered patient-trial matching across 300 patients, 25 trials, and 7,500 match pairs using XGBoost and spaCy
 
 ## 👯 Looking to Collaborate On
 - Data engineering and analytics projects using Python, Spark, and Airflow
@@ -41,12 +41,12 @@ I've reduced manual reporting efforts by up to **40%** by automating dashboards 
 
 | Project | Stack | Highlights |
 |---|---|---|
-| [FraudDetectionAI](https://github.com/atharvadevne123/FraudDetectionAI) | XGBoost · LightGBM · FAISS · Flask · Docker · AWS | Real-time ML ensemble fraud detection with RAG explainability |
-| [Enterprise-Analytics-Platform](https://github.com/atharvadevne123/Enterprise-Analytics-Platform) | Spark · Airflow · Kafka · FastAPI · PostgreSQL | Unified analytics across E-Commerce, Supply Chain & Finance |
-| [Churn-Shield](https://github.com/atharvadevne123/Churn-Shield) | LightGBM · SHAP · Airflow · FastAPI | Production churn prediction with drift detection & auto-retraining |
+| [Enterprise Analytics Platform](https://github.com/atharvadevne123/Enterprise-Analytics-Platform) | Spark · Airflow · Kafka · FastAPI · PostgreSQL | Unified analytics across E-Commerce, Supply Chain, and Finance |
+| [SENTINELLA: Fraud Detection](https://github.com/atharvadevne123/FraudDetectionAI) | XGBoost · LightGBM · FAISS · Flask · Docker · AWS | 0.947 AUC-ROC ensemble fraud detection with RAG explainability |
+| [Clinical Trial Cohort Matching](https://github.com/atharvadevne123/Clinical-Trial-Cohort-Matching-System) | XGBoost · spaCy · FHIR · FastAPI · PostgreSQL | AI patient-trial matching: 300 patients, 25 trials, 7,500 match pairs |
+| [Churn-Shield](https://github.com/atharvadevne123/Churn-Shield) | LightGBM · SHAP · Airflow · FastAPI | Production churn prediction with drift detection and auto-retraining |
 | [Rag-Sentinel](https://github.com/atharvadevne123/Rag-Sentinel) | FAISS · Isolation Forest · FastAPI · Docker | Anomaly detection via RAG pipeline with real-time drift monitoring |
 | [Price-Prophet](https://github.com/atharvadevne123/Price-Prophet) | Ensemble ML · FastAPI · Docker | Dynamic price optimization with model monitoring |
-| [Clinical-Trial-Cohort-Matching](https://github.com/atharvadevne123/Clinical-Trial-Cohort-Matching-System) | XGBoost · spaCy · FHIR · FastAPI · PostgreSQL | AI-powered patient-trial matching with NLP extraction |
 | [GenAI-Medical-Policy-Analysis](https://github.com/atharvadevne123/GenAI-Medical-Policy-Analysis) | GenAI · PDF extraction · NLP | Automated medical policy document analysis with natural language Q&A |
 | [Gmail-job-Automation](https://github.com/atharvadevne123/Gmail-job-Automation) | Python · Google Apps Script | Automated inbox organization for 14,000+ job emails |
 
