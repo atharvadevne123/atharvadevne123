@@ -15,6 +15,7 @@ names, colleague surnames or email addresses. Those stay in internal notes.
 | [`02-inherited-sql-findings.md`](02-inherited-sql-findings.md) | Defect register for the inherited queries. Six critical, eight high, six medium |
 | [`03-metric-definitions.md`](03-metric-definitions.md) | The definition sheet template and the eight ambiguities that must be resolved before building |
 | [`04-context-and-landscape.md`](04-context-and-landscape.md) | Systems, terminology, who to ask by role, open decisions, and the adjacent pallet utilisation project |
+| [`05-build-runbook.md`](05-build-runbook.md) | Step by step build instructions, Phase 0 through Phase 5, with what done looks like at each step |
 
 ## The short version
 
