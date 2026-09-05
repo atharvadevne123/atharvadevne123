@@ -1,0 +1,155 @@
+// =====================================================================
+//  Measures
+//  Create these in a dedicated empty table called  _Measures
+//  (Home > Enter data > name it _Measures > Load, then hide its column).
+//
+//  Rule: nothing on a canvas is ever a raw column dragged in and
+//  auto-aggregated. Every number on the report comes from one of these.
+// =====================================================================
+
+
+// ---------------------------------------------------------------------
+//  OUTBOUND
+// ---------------------------------------------------------------------
+
+Shipped Kits = SUM ( Fact_Outbound[QUANTITY] )
+
+// DISTINCTCOUNT, not COUNTROWS. The fact grain is one row per oLPN per
+// order line per item per batch, so COUNTROWS counts LPN lines. On the
+// mock data that is a 1.52x overstatement. This is defect H6.
+oLPNs Shipped = DISTINCTCOUNT ( Fact_Outbound[OLPN_ID] )
+
+Orders Shipped = DISTINCTCOUNT ( Fact_Outbound[ORDER_ID] )
+
+Order Lines Shipped = COUNTROWS ( Fact_Outbound )
+
+// ASSUMPTION: a box is an oLPN. UNCONFIRMED, see Step 6 question 2.
+// Kept as a separate measure rather than an alias so that if the answer
+// comes back "no", only this line changes.
+Boxes Shipped = [oLPNs Shipped]
+
+Avg Kits per oLPN =
+DIVIDE ( [Shipped Kits], [oLPNs Shipped] )
+
+Avg Lines per oLPN =
+DIVIDE ( [Order Lines Shipped], [oLPNs Shipped] )
+
+
+// ---------------------------------------------------------------------
+//  INBOUND
+// ---------------------------------------------------------------------
+
+Received Kits = SUM ( Fact_Inbound[QUANTITY] )
+
+iLPNs Received = DISTINCTCOUNT ( Fact_Inbound[ILPN_ID] )
+
+Receipts = DISTINCTCOUNT ( Fact_Inbound[RECEIPT_ID] )
+
+ASNs Received = DISTINCTCOUNT ( Fact_Inbound[ASN_ID] )
+
+POs Received = DISTINCTCOUNT ( Fact_Inbound[PURCHASE_ORDER_ID] )
+
+Avg Kits per iLPN =
+DIVIDE ( [Received Kits], [iLPNs Received] )
+
+
+// ---------------------------------------------------------------------
+//  TIME INTELLIGENCE
+//  All of these require Dim_Date to be marked as the date table.
+// ---------------------------------------------------------------------
+
+Shipped Kits PY =
+CALCULATE ( [Shipped Kits], SAMEPERIODLASTYEAR ( Dim_Date[Date] ) )
+
+Shipped Kits YoY % =
+VAR Curr = [Shipped Kits]
+VAR Prior = [Shipped Kits PY]
+RETURN DIVIDE ( Curr - Prior, Prior )
+
+Shipped Kits YTD =
+TOTALYTD ( [Shipped Kits], Dim_Date[Date] )
+
+Shipped Kits R12M =
+CALCULATE (
+    [Shipped Kits],
+    DATESINPERIOD ( Dim_Date[Date], MAX ( Dim_Date[Date] ), -12, MONTH )
+)
+
+Received Kits PY =
+CALCULATE ( [Received Kits], SAMEPERIODLASTYEAR ( Dim_Date[Date] ) )
+
+Received Kits YoY % =
+DIVIDE ( [Received Kits] - [Received Kits PY], [Received Kits PY] )
+
+
+// ---------------------------------------------------------------------
+//  RUN RATE, for the capacity and labour conversation
+// ---------------------------------------------------------------------
+
+Working Days in Period =
+CALCULATE (
+    COUNTROWS ( Dim_Date ),
+    Dim_Date[IsWorkingDay] = TRUE (),
+    Dim_Date[IsPast] = TRUE ()
+)
+
+Kits per Working Day =
+DIVIDE ( [Shipped Kits], [Working Days in Period] )
+
+oLPNs per Working Day =
+DIVIDE ( [oLPNs Shipped], [Working Days in Period] )
+
+Peak Day Kits =
+MAXX ( VALUES ( Dim_Date[Date] ), [Shipped Kits] )
+
+// Peak to average ratio. This is the number that actually drives staffing,
+// because you staff for the peak, not the mean.
+Peak to Average Ratio =
+DIVIDE ( [Peak Day Kits], [Kits per Working Day] )
+
+
+// ---------------------------------------------------------------------
+//  DATA QUALITY
+//  These belong ON the report, on the assumptions page. A report that
+//  shows its own error rate gets trusted.
+// ---------------------------------------------------------------------
+
+Unclassified Rows =
+CALCULATE (
+    COUNTROWS ( Fact_Outbound ),
+    Fact_Outbound[PRODUCT_LINE] = "UNCLASSIFIED"
+)
+
+Unclassified % =
+DIVIDE ( [Unclassified Rows], COUNTROWS ( Fact_Outbound ) )
+
+// Rows whose ITEM_ID has no match in the item master. With LEFT joins these
+// survive as facts, which is correct, but you must be able to see how many.
+Orphan Item Rows =
+CALCULATE (
+    COUNTROWS ( Fact_Outbound ),
+    ISBLANK ( RELATED ( Dim_Item[ITEM_ID] ) )
+)
+
+Rows Missing Batch =
+CALCULATE (
+    COUNTROWS ( Fact_Outbound ),
+    ISBLANK ( Fact_Outbound[BATCH_NUMBER] )
+)
+
+// Cutover integrity. Any date carrying rows from more than one source system
+// for the same product line means the cutover rule is broken. Should be 0.
+Cutover Overlap Days =
+COUNTROWS (
+    FILTER (
+        SUMMARIZE (
+            Fact_Outbound,
+            Fact_Outbound[SHIP_DATE],
+            Fact_Outbound[PRODUCT_LINE]
+        ),
+        CALCULATE ( DISTINCTCOUNT ( Fact_Outbound[SOURCE_SYSTEM] ) ) > 1
+    )
+)
+
+Last Refresh =
+"Data as at " & FORMAT ( MAX ( Fact_Outbound[SHIP_DATE] ), "dd mmm yyyy" )
