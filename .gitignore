@@ -4,3 +4,9 @@
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+
+# PDF build intermediates
+tableau-dashboard-documentation/pdf-src/*.html
+
+# Delivery bundle, rebuilt on demand from tableau-dashboard-documentation/
+Tableau_Dashboard_Documentation.zip
