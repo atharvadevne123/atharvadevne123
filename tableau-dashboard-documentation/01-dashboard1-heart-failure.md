@@ -22,8 +22,8 @@
 | Source platform | `source-platform='mac'` | ✓ DIRECTLY VERIFIED |
 | Publish target | `repository-location derived-from='https://public.tableau.com/workbooks/Healthcare-HeartFailure_17429983482570?rev=1.1'`, `id='Healthcare-HeartFailure_17429983482570'`, `revision='1.2'` | ✓ DIRECTLY VERIFIED |
 | `xml:base` | `https://haproxy-traffic-splitter` | ✓ DIRECTLY VERIFIED |
-| Author / owner field | No author, owner, or `<user>` element is stored anywhere in the workbook | ✗ NOT AVAILABLE |
-| Author evidence (indirect) | The source file path is `/Users/atharvadevne/UIC/Business Data Visualization/Heart Fail Prediction`, so the macOS account was `atharvadevne` and the work sat in a folder named `UIC/Business Data Visualization` | △ INFERRED (path only, not an authorship field) |
+| Author / owner | Atharva Devne. **Confirmed by the author.** The workbook itself stores no author field. | ✓ CONFIRMED BY AUTHOR (not from the file) |
+| Author evidence in the file | The source file path is `/Users/atharvadevne/UIC/Business Data Visualization/Heart Fail Prediction`, so the macOS account was `atharvadevne`. **The folder name is where the file happened to sit, not a course deliverable.** | ✓ VERIFIED path; context ✓ CONFIRMED BY AUTHOR |
 | Dashboard dimensions | 1900 x 1050 px, `sizing-mode='range'` (min and max both 1900 x 1050) | ✓ DIRECTLY VERIFIED |
 | Dashboard background | `#000000` (black) | ✓ DIRECTLY VERIFIED |
 | Dashboard UUID | `{14818E80-7948-4984-90AD-D1E566C79BE9}` | ✓ DIRECTLY VERIFIED |
@@ -44,7 +44,9 @@ What can be read off the structure (△ INFERRED, from worksheet titles, encodin
 
 - **Purpose (inferred).** Every single chart on the dashboard encodes `Death Event` on Color, and 12 of the 14 chart titles end with the literal words `- Survival Stats`. The dashboard is a *survival profiling* view: for each clinical attribute in the dataset, show how the population splits between `Surivive` and `Death`.
 - **Business / clinical question (inferred).** "Among heart failure patients, how does each clinical and demographic attribute relate to mortality during the follow-up period?"
-- **Intended audience (inferred).** The source folder is `UIC/Business Data Visualization`, so the immediate audience is academic. The content itself (clinical biomarkers, comorbidity flags, follow-up time) suits a clinical analytics or population health audience.
+- **Project type (confirmed by the author).** **Self-directed. Built for the author's own skill development**, not for a course, a client or an employer. The `UIC/Business Data Visualization` folder in the path is simply where the file sat.
+- **Dataset origin (confirmed by the author).** **Kaggle.** It is a **public** dataset, which is why embedding a full extract and publishing to Tableau Public raises no disclosure concern.
+- **Intended audience (inferred).** The content (clinical biomarkers, comorbidity flags, follow-up time) is framed for a clinical analytics or population health reader. In practice the audience is anyone reviewing the author's portfolio.
 - **Overall story (inferred).** Top row states the cohort size and its composition. Middle rows split each binary comorbidity by outcome. Lower rows show the distribution of each continuous biomarker by outcome, ending with two scatter views that bring age, follow-up time and sex together.
 
 ---
@@ -84,7 +86,6 @@ There is exactly **one** data source in this workbook.
 | Hidden fields | **None.** No column carries `hidden='true'`. | ✓ (absence) |
 | Geographic roles | **None.** No `semantic-role` or geographic role assignment exists. No map is used. | ✓ (absence) |
 | Data source calculations | 13 calculated columns (7 bins, 5 string labels, 1 constant). See section 6. | ✓ |
-| Row count of source data | The `.hyper` extract is binary and no Hyper API is available here, so the row count cannot be read. | ✗ NOT AVAILABLE |
 
 ---
 
@@ -461,7 +462,7 @@ Five KPI cards are on the dashboard, each one its own worksheet, all sitting in 
 | What a user learns | How many heart failure patients the entire dashboard is describing |
 | Dependency chain | `[Calculation_215609893383794688]` supplies the caption text; the number is a direct `CNT` of a source column. No calculated field feeds the number. |
 
-**Technical note:** counting `DEATH_EVENT` rather than using `COUNT(*)` or a `Number of Records` field is a design choice. It counts non-null `DEATH_EVENT` values, which equals the row count only if `DEATH_EVENT` is never null. The metadata record for `DEATH_EVENT` says `<contains-null>true</contains-null>`, which is Tableau's default optimistic flag for a scanned CSV rather than a measured fact, so this cannot be resolved from the workbook alone. ✗ NOT AVAILABLE whether any nulls exist.
+**Technical note:** counting `DEATH_EVENT` rather than using `COUNT(*)` or a `Number of Records` field is a design choice. It counts non-null `DEATH_EVENT` values, so it equals the cohort size only if `DEATH_EVENT` is never null. The metadata record for `DEATH_EVENT` says `<contains-null>true</contains-null>`, which is Tableau's default optimistic flag for a scanned CSV rather than a measured fact, so this cannot be resolved from the workbook alone. A `COUNT(*)` or an explicit `Number of Records` field would have been immune to that.
 
 ### KPI 2: Total Deaths
 
@@ -947,7 +948,7 @@ These are things the dashboard computes and displays as a matter of construction
 
 ### C. Actual findings verifiable from the available data
 
-**None can be stated.** The underlying values live only in the binary `.hyper` extract, and no Hyper reader is available in this environment. No row count, no mortality rate, no distribution shape and no correlation can be verified from the files supplied. ✗ NOT AVAILABLE.
+**None can be stated.** The underlying values live only in the binary `.hyper` extract, and no Hyper reader is available in this environment. No mortality rate, no distribution shape and no correlation can be verified from the files supplied. ✗ NOT AVAILABLE.
 
 ---
 
@@ -1029,7 +1030,7 @@ FINAL USER EXPERIENCE
 
 Use this as a spoken narrative. Everything in it is supported by the workbook.
 
-> "This one is a heart failure survival dashboard. The dataset is patient-level clinical records, 13 columns, one row per patient: a binary mortality flag, a follow-up period, four comorbidity flags for anaemia, diabetes, high blood pressure and smoking, plus sex, age and five clinical measurements like ejection fraction, serum creatinine and serum sodium.
+> "This one is a heart failure survival dashboard I built for myself, to get properly fluent in Tableau's semantic layer and in building chart types that Tableau does not give you out of the box. The dataset is a public clinical records set from Kaggle, 13 columns, one row per patient: a binary mortality flag, a follow-up period, four comorbidity flags for anaemia, diabetes, high blood pressure and smoking, plus sex, age and five clinical measurements like ejection fraction, serum creatinine and serum sodium.
 >
 > I built it because the raw file is basically unreadable as a table. It is all zeros and ones and unlabelled biomarker columns. The question I wanted the dashboard to answer was simple to state and hard to see in the data: for every attribute we record about a heart failure patient, how does the population split between survival and death?
 >

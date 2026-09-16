@@ -2,7 +2,15 @@
 
 **Purpose:** a structured, verifiable account of what was actually built, for a hiring manager confirming hands-on experience.
 
-**Evidence base:** this conversation contains exactly two artefacts, the packaged Tableau workbooks `Healthcare - Heart Failure.twb` and `HR Analytics Dashboard.twb`. Everything below is drawn from their XML. **Nothing is inferred from typical practice.** Where the evidence does not exist, the entry reads **"Not in chats"** and the corresponding question appears in section 12.
+**Evidence base:** this conversation contains exactly two artefacts, the packaged Tableau workbooks `Healthcare - Heart Failure.twb` and `HR Analytics Dashboard.twb`, plus a short set of answers the author gave directly. Everything below is drawn from the workbook XML or from those stated answers, and the two are kept clearly apart. **Nothing is inferred from typical practice.** Where the evidence does not exist, the entry reads **"Not in chats"** and the corresponding question appears in section 12.
+
+**Confirmed by the author, not by the files:**
+
+| Item | Answer |
+|---|---|
+| Why both projects were built | **Self-directed. For the author's own skill development.** Not a course, not a client, not an employer. |
+| Where both datasets came from | **Kaggle.** |
+| Whether the heart failure dataset is public | **Yes, it is public.** This resolves the only disclosure concern the files raised, since both workbooks embed full extracts and publish to Tableau Public. |
 
 **Important framing note.** This template is designed for a multi-system data engineering engagement with stakeholders, source systems, warehouses and refresh schedules. The artefacts supplied are two self-contained single-file Tableau workbooks. Large parts of sections 1, 2, 4, 7, 8, 10 and 11 therefore have no evidence, and saying so is more useful than filling them in. A hiring manager reading this should understand the scope accurately: these are **individual Tableau dashboard builds over local flat files**, not pipeline or platform work.
 
@@ -21,34 +29,32 @@
 
 ### Who requested the work
 
-**Not in chats.** No requester, sponsor, client or stakeholder is named anywhere in either file.
+**Nobody. Both projects were self-directed**, confirmed by the author. There was no requester, sponsor, client or stakeholder, and none is named anywhere in either file.
 
-One circumstantial marker exists: Workbook 1's source file lives at `/Users/atharvadevne/UIC/Business Data Visualization/Heart Fail Prediction`. The folder name `UIC/Business Data Visualization` is consistent with a university course, but the workbook does not say so.
+Note on a misleading path: Workbook 1's source file lives at `/Users/atharvadevne/UIC/Business Data Visualization/Heart Fail Prediction`. That folder name looks like coursework, but the author has confirmed it is not. The file simply sat there.
 
 ### What decisions the outputs support
 
-**Not in chats** as a stated fact. What the dashboards mechanically enable is documented in `01-dashboard1-heart-failure.md` section 16 and `02-dashboard2-hr-analytics.md` section 16.
+**No external decision.** Both were built for the author's own skill development, so the "decision supported" is the author's own learning rather than a business decision. What the dashboards mechanically enable a reader to ask is documented in `01-dashboard1-heart-failure.md` section 16 and `02-dashboard2-hr-analytics.md` section 16.
 
 ### My role and responsibilities
 
 | Item | Evidence |
 |---|---|
-| Role title | **Not in chats.** No author, owner or creator field exists in either workbook. |
+| Role title | Sole author and sole builder, self-directed. Confirmed by the author. No author field exists in either workbook. |
 | Only identity marker | The macOS account name `atharvadevne` appears in file paths in both workbooks: `/Users/atharvadevne/UIC/...` and `/Users/atharvadevne/Desktop/...`. This is a path string, not an authorship field. |
 | Scope of work evidenced | Both workbooks are **single-author artefacts with no shared or published data source, no server connection and no collaboration markers**. Every data source is `inline='true'`, meaning embedded in the workbook rather than published to a server. Every connection points at a local file on one machine. |
 | Responsibilities that can be evidenced from the files | Data connection, extract configuration, semantic layer definition (captions, roles, aliases), calculated field authoring, parameter creation, worksheet construction, chart formatting, dashboard layout, filter scoping, action configuration, tooltip authoring, publication to Tableau Public. |
 
 ### Who else was involved
 
-**Not in chats.** No other names, no collaborators, no reviewers. Nothing in either workbook identifies a second person.
+**Nobody.** Both projects were solo and self-directed. No collaborators, no reviewers, and nothing in either workbook identifies a second person.
 
 ### Timeline
 
 | Item | Evidence |
 |---|---|
-| Start date | **Not in chats.** |
-| Completion date | **Not in chats.** |
-| Only timestamps available | Archive member modification times, which are packaging timestamps rather than work dates: `Healthcare - Heart Failure.twb` **26 March 2025**; `HR Analytics Dashboard.twb` **26 August 2025**, along with `Image/HR background.pptx.png` also 26 August 2025. |
+| Start and completion dates | **Not recorded here.** |
 | Tableau build used, Workbook 1 | `source-build='2025.1.0 (20251.25.0313.2002)'`, build comment `20243.25.0110.1701`. The `20251.25.0313` component dates that build to 13 March 2025. |
 | Tableau build used, Workbook 2 | `source-build='2025.2.0 (20252.25.0514.2217)'`, build comment `20252.25.0723.1135`. The `20252.25.0514` component dates that build to 14 May 2025 and the comment build to 23 July 2025. |
 | Revision numbers | Workbook 1: `repository-location revision='1.2'`, derived from `?rev=1.1`, so **at least two publish revisions**. Workbook 2: `revision='1.1'`, derived from `?rev=1.0`, so **at least two publish revisions**. |
@@ -73,9 +79,9 @@ One circumstantial marker exists: Workbook 1's source file lives at `/Users/atha
 | Parsing configuration | `character-set='UTF-8'`, `separator=','`, `header='yes'`, `locale='en_US'` |
 | Relation | `<relation name='heart_failure_clinical_records_dataset.csv' table='[heart_failure_clinical_records_dataset#csv]' type='table' />` |
 | Schema | 13 columns, flat, no key declared |
-| Volume | **Not in chats.** The row count is inside the binary Hyper extract and cannot be read here. |
+| Provenance | **Kaggle, public dataset.** Confirmed by the author. |
 | Access method | Direct file read, then full extract |
-| Owner | **Not in chats.** |
+| Owner | Publicly available dataset, no internal owner. |
 | Legacy versus current | Not applicable, one file |
 
 **Schema, exact column names, types and ordinals:**
@@ -118,9 +124,7 @@ The unbound connection on the active source, transcribed exactly:
 
 **Three columns arrive pre-derived:** `CF_age band` (string), `CF_attrition label` (string), `CF_current Employee` (integer). The `CF_` prefix is the convention Tableau uses when a calculated field is exported to a flat file. **They carry no calculation in this workbook**, so whatever derived them happened upstream. The upstream step itself is **Not in chats**.
 
-**Volume: Not in chats** for all four sources.
-
-**Owner: Not in chats** for all four sources.
+**Provenance: Kaggle, public dataset**, confirmed by the author. No internal owner for any of the four.
 
 **Legacy versus current systems, and how history is split: Not applicable.** There is no history, no cutover and no second system. Neither dataset contains a date field of any kind, so no temporal split exists to describe.
 
@@ -541,7 +545,7 @@ Almost nothing in this section exists, and that is the accurate answer.
 | Credentials handling | `workgroup-auth-mode='as-is'` on every connection, which is the default for a file connection requiring no authentication. No credential is stored, because none is needed. ✓ Verified. |
 | **Row-level security** | **None.** No user filter, no `USERNAME()`, no `ISMEMBEROF()`, no user function appears in either workbook. ✓ Verified by absence. |
 | Workspace administration | **Not applicable.** Tableau Public has no workspace model. |
-| **What data was allowed to leave the source systems** | **Not in chats.** However, a material fact is verifiable and should be understood: **both workbooks are packaged with full data extracts embedded.** Publishing either one to Tableau Public publishes the underlying records with it. Anyone who can view the published dashboard can download the workbook and its data. For the heart failure dataset this is patient-level clinical data. If that dataset is a public research dataset this is fine; if it is not, it is a disclosure issue. **Which it is: Not in chats**, and it is question 3 in section 12. |
+| **What data was allowed to leave the source systems** | **No restriction, and none needed.** Both workbooks are packaged with full data extracts embedded, so publishing either one to Tableau Public publishes the underlying records with it, downloadable by any viewer. **Both datasets are public Kaggle datasets**, confirmed by the author, so there is no disclosure issue. Worth stating explicitly because embedding a full extract in a public workbook would be a real problem with any non-public source, and knowing that distinction is the point. |
 | Monitoring | **Not in chats.** None exists. |
 | Failure handling | **Not in chats.** None exists. |
 | Who is notified | **Not in chats.** No alert, subscription or notification is configured. |
@@ -738,13 +742,15 @@ What can be counted, and only this:
 
 Every question below corresponds to a "Not in chats" entry above. They are ordered by how much they would strengthen the brief.
 
-### Highest priority, these change what can be claimed at all
+### Already answered by the author
 
-1. **Section 1, 10, 11:** Was either project done for anyone? A course, a client, an employer, a job task, or entirely self-directed? If a course, which one and at which institution? The Heart Failure path contains `UIC/Business Data Visualization`, so please confirm or correct that.
-2. **Section 2:** Where did each dataset come from? Name the exact source for `heart_failure_clinical_records_dataset.csv` and for `HR_data.csv`. Public dataset, Kaggle, UCI, GitHub repository, employer export?
-3. **Section 8:** Is the heart failure dataset a public research dataset? Both workbooks ship with full data extracts embedded and are published to Tableau Public, which means the underlying records are downloadable by anyone viewing them. If either dataset is not public, that needs addressing before these are shown to anyone.
-4. **Section 2, 11:** What is the row count of each file? This is the single most useful missing number and takes one line to check.
-5. **Section 1:** Actual start and end dates for each build, and roughly how long each took. The only timestamps available are packaging dates, 26 March 2025 and 26 August 2025.
+These three are closed and are folded into the document above. They are listed so the trail is visible.
+
+### Still open
+
+1. ~~Was either project done for anyone?~~ **ANSWERED: both self-directed, for your own development. Not coursework.**
+2. ~~Where did each dataset come from?~~ **ANSWERED: both from Kaggle.**
+3. ~~Is the heart failure dataset public?~~ **ANSWERED: yes, public. No disclosure issue.**
 
 ### Data and logic questions
 
@@ -793,19 +799,19 @@ The same document with identifying details replaced. All technical detail, count
 
 Subject matter inferable from structure: Workbook 1 profiles patient survival in a cardiac care dataset, evidenced by 12 of 14 chart titles ending in `- Survival Stats` and a mortality outcome field on the Colour shelf of every chart. Workbook 2 analyses workforce attrition, evidenced by an attrition measure behind 5 of 7 worksheets.
 
-**Who requested the work.** Not in chats. One circumstantial marker: Workbook 1's source file sits in a folder path containing a university name and a data visualisation course name, consistent with academic coursework, though the workbook does not state it.
+**Who requested the work.** Nobody. Both projects were self-directed, built by the author for their own skill development, confirmed by the author. Workbook 1's source file sits in a folder path containing a university name and a data visualisation course name, which looks like coursework but is not.
 
 **My role.** Not in chats as a title. Both workbooks are single-author artefacts: every data source is embedded (`inline='true'`) rather than published to a server, every connection points at a local file on one workstation, and no collaboration marker exists. Responsibilities evidenced by the files: data connection, extract configuration, semantic layer definition, calculated field authoring, parameter creation, worksheet construction, formatting, dashboard layout, filter scoping, action configuration, tooltip authoring and publication to a public visualisation hosting platform.
 
 **Who else was involved.** Not in chats. No second person appears anywhere in the evidence.
 
-**Timeline.** Start and end dates: Not in chats. Packaging timestamps only: Workbook 1 dated 26 March 2025, Workbook 2 dated 26 August 2025. BI tool builds used: version 2025.1.0 (build component dating to 13 March 2025) and version 2025.2.0 (build components dating to 14 May 2025 and 23 July 2025), both on macOS. Both workbooks show at least two publish revisions. Current status: both published to a public visualisation hosting platform; whether currently live could not be checked because the environment's network policy blocked the host.
+**Timeline.** Start and end dates: not recorded here. BI tool builds used: version 2025.1.0 (build component dating to 13 March 2025) and version 2025.2.0 (build components dating to 14 May 2025 and 23 July 2025), both on macOS. Both workbooks show at least two publish revisions. Current status: both published to a public visualisation hosting platform; whether currently live could not be checked because the environment's network policy blocked the host.
 
 ### 2. SOURCE SYSTEMS AND DATA INVENTORY (sanitised)
 
 There are no source systems in the enterprise sense. No database, no API, no document management site, no shared folder, no server. Every connection is to a local file on one workstation.
 
-**Workbook 1:** local file system, delimited text file connector, one CSV of clinical records, parsing configuration `character-set='UTF-8'`, `separator=','`, `header='yes'`, `locale='en_US'`, one relation of `type='table'`, 13 columns, no key declared. Volume: Not in chats. Owner: Not in chats.
+**Workbook 1:** local file system, delimited text file connector, one CSV of clinical records, parsing configuration `character-set='UTF-8'`, `separator=','`, `header='yes'`, `locale='en_US'`, one relation of `type='table'`, 13 columns, no key declared. Provenance: a public dataset obtained from a public data-sharing platform, confirmed by the author.
 
 Schema, 13 columns with ordinals and types: patient age (real), four binary comorbidity or lifestyle flags (integer), five continuous clinical biomarker measurements (three real, two integer), a binary demographic flag (integer), an integer follow-up period, and a binary mortality outcome (integer). Every metadata record carries `contains-null='true'`, which is the connector's default optimistic flag on a scanned text file rather than evidence that nulls exist.
 
@@ -824,7 +830,7 @@ The unbound connection is declared with `cleaning='no'`, `compat='no'`, `dataRef
 
 Three columns arrive pre-derived, carrying the BI tool's exported-calculated-field prefix: an age band, an attrition label and a current-employee flag. They carry no calculation in this workbook, so the derivation happened upstream. The upstream step itself: Not in chats.
 
-Volume and owner: Not in chats for all four sources. Legacy versus current systems: not applicable, there is no second system, no history and no date field in either dataset.
+Provenance for all four sources: a public dataset obtained from a public data-sharing platform, confirmed by the author. Legacy versus current systems: not applicable, there is no second system, no history and no date field in either dataset.
 
 ### 3. SOURCE-TO-TARGET MAPPING (sanitised)
 
@@ -957,7 +963,7 @@ How the source connects to the BI tool: direct local file read via the delimited
 
 Access control: Not in chats. Both publish to a **public-by-default** hosting platform with no row-level security and no user-based access control. Credentials: `workgroup-auth-mode='as-is'` on every connection, the default for a file connection needing no authentication, so no credential is stored. Row-level security: **none**, no user filter or user function appears anywhere.
 
-What data was allowed to leave the source systems: Not in chats. A material verifiable fact: **both workbooks are packaged with full data extracts embedded**, so publishing either one publishes the underlying records with it, downloadable by any viewer. For the clinical dataset this is patient-level data. Whether that dataset is a public research dataset is Not in chats and is a priority question.
+What data was allowed to leave the source systems: **no restriction, and none needed.** Both workbooks are packaged with full data extracts embedded, so publishing either one publishes the underlying records with it, downloadable by any viewer. **Both datasets are public**, confirmed by the author, so there is no disclosure issue.
 
 Monitoring, failure handling and notification: Not in chats. None exists.
 
@@ -1015,6 +1021,8 @@ Check this list to confirm nothing identifying remains.
 | 6 | `/Users/atharvadevne/UIC/Business Data Visualization/Heart Fail Prediction` | "a folder path containing a university name and a data visualisation course name" |
 | 7 | `/Users/atharvadevne/Desktop/HR-Analytics-Dashboard-Using-Tableau-main` | "the same folder on the same workstation"; the `-main` suffix described as "the suffix that a downloaded repository archive of a default branch produces" |
 | 8 | `UIC` | "a university" |
+| 8a | `Kaggle` | "a public data-sharing platform" |
+| 8b | `Atharva Devne` | "the author" |
 | 9 | `Healthcare - Heart Failure.twb` | "Workbook 1" |
 | 10 | `HR Analytics Dashboard.twb` | "Workbook 2" |
 | 11 | `heart_failure_clinical_records_dataset.csv` | "one CSV of clinical records" |

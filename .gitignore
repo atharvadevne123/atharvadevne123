@@ -4,3 +4,6 @@
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+
+# PDF build intermediates
+tableau-dashboard-documentation/pdf-src/*.html

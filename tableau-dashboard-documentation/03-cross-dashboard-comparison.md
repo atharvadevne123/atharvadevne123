@@ -325,7 +325,9 @@ No ranking is offered. These are documented differences only.
 | **Business questions addressed** (△ inferred from structure) | Which clinical and demographic attributes accompany mortality in a heart failure cohort? What is the cohort's size, sex balance and age profile? Where along each biomarker's range do deaths concentrate? | Where does attrition concentrate by department, education field, gender and age band? What is the attrition rate for any given slice? Which job roles cluster at low satisfaction? |
 | **Dimensions analysed** | `Death Event`, `Sex`, `Anaemia`, `Diabetes`, `High Blood Pressure`, `Smoking`, plus 7 binned biomarkers | `Department`, `Education Field`, `Education`, `Gender`, `Job Role`, `Job Satisfaction`, `CF age band`, `Age (bin)` |
 | **Measures analysed** | `Age`, `Creatinine Phosphokinase`, `Ejection Fraction`, `Platelets`, `Serum Creatinine`, `Serum Sodium`, `Time`, plus counts | `Employee Count`, `Attrition Count`, `Attrition Rate`, `Active Employees`, `Age` |
-| **Intended users** (△ inferred) | Clinical analytics, population health, or an academic audience (the folder path is `UIC/Business Data Visualization`) | HR business partners, people analytics, HR leadership |
+| **Project type** (✓ confirmed by the author) | Self-directed, built for the author's own skill development | Self-directed, built for the author's own skill development |
+| **Dataset origin** (✓ confirmed by the author) | Kaggle, public dataset | Kaggle, public dataset |
+| **Intended users** (△ inferred from design) | Clinical analytics or population health reader | HR business partners, people analytics, HR leadership |
 | **Business objectives** (△ inferred) | Descriptive profiling to identify which attributes merit formal statistical testing or predictive modelling | Descriptive and exploratory attrition analysis to target retention effort |
 | **What neither dashboard does** | No prediction, no statistical testing, no significance measure, no trend over time, no target or benchmark, no forecast | Same |
 
@@ -365,12 +367,11 @@ No ranking is offered. These are documented differences only.
 
 | Item | Status |
 |---|---|
-| Row counts of either dataset | ✗ NOT AVAILABLE. Values are inside binary `.hyper` files and no Hyper reader is installed here. |
 | Any actual data value, distribution, rate or correlation | ✗ NOT AVAILABLE |
-| Author, owner, creator or last-modified-by | ✗ NOT AVAILABLE. No such field exists in either file. |
-| Creation date, edit history, time spent | ✗ NOT AVAILABLE. Only archive member timestamps exist: Heart Failure `.twb` dated 26 March 2025, HR `.twb` dated 26 August 2025. Those are file system timestamps from the packaging, not authorship dates. |
+| Author, owner, creator or last-modified-by | ✗ NOT AVAILABLE **from the file**. No such field exists in either workbook. Authorship is ✓ CONFIRMED BY THE AUTHOR as Atharva Devne, self-directed on both. |
 | Written dashboard description, documentation or data dictionary | ✗ NOT AVAILABLE |
 | Requirements, stakeholders, sign-off | ✗ NOT AVAILABLE |
+| Dataset provenance | ✓ CONFIRMED BY THE AUTHOR: both datasets came from **Kaggle** and both are **public**. Not recoverable from the files. |
 | Whether the CSVs were cleaned before import | ✗ NOT AVAILABLE, except that the `CF_` columns in the HR file were clearly derived upstream |
 | Live Tableau Public URLs and view counts | ✗ NOT AVAILABLE. `public.tableau.com` is blocked by this environment's network policy (`403 to CONNECT`). Only the workbook IDs are recoverable from the XML. |
 | Rendered screenshots | ✗ NOT AVAILABLE. No Tableau runtime, no network access to the published views. |
@@ -384,20 +385,16 @@ These cannot be extracted from the workbooks but will materially strengthen how 
 
 ## About the data
 
-1. **The origin of each dataset.** Where did `heart_failure_clinical_records_dataset.csv` and `HR_data.csv` come from? Public dataset, coursework supply, Kaggle, UCI, a company export? Name it, because a hiring manager will ask.
-2. **The row count of each file.** This is the single most useful number missing from this documentation and you can read it in one line.
-3. **Whether either CSV was cleaned outside Tableau**, and if so with what (Excel, Python, SQL) and what rules were applied.
+1. ~~The origin of each dataset.~~ **ANSWERED: both from Kaggle, both public.**
+2. **Whether either CSV was cleaned outside Tableau**, and if so with what (Excel, Python, SQL) and what rules were applied.
 4. **How the `CF_age band`, `CF_attrition label` and `CF_current Employee` columns in the HR file were derived**, and by whom. Were they already in the file you downloaded, or did you create them in an earlier Tableau workbook and export?
 5. **What `Employee Count` actually contains.** If it is 1 for every row, say so, because it is the denominator of your only rate KPI.
 6. **Whether `DEATH_EVENT` has any nulls**, since `CNT(DEATH_EVENT)` is your cohort-size KPI and it counts non-nulls.
 
 ## About the context
 
-7. **Why you built each dashboard.** Coursework, a portfolio piece, a job application task, self-directed practice? The Heart Failure file sits in a `UIC/Business Data Visualization` folder, which suggests a course. Confirm it.
-8. **Whether there was a brief, an assignment prompt or a stakeholder**, and what it asked for.
-9. **Who, if anyone, reviewed or used either dashboard**, and what they said.
-10. **Dates.** When did you start and finish each? The file timestamps are March 2025 and August 2025 but those are packaging dates, not work dates.
-11. **How long each took**, roughly.
+7. ~~Why you built each dashboard.~~ **ANSWERED: both self-directed, for your own development. Not coursework.**
+8. **Who, if anyone, reviewed or used either dashboard**, and what they said.
 
 ## About the decisions
 

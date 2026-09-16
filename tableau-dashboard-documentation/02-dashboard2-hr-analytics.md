@@ -22,8 +22,8 @@
 | Source platform | `source-platform='mac'` | ✓ DIRECTLY VERIFIED |
 | Publish target | `repository-location derived-from='https://public.tableau.com/workbooks/HRAnalyticsDashboard_17561606616710?rev=1.0'`, `id='HRAnalyticsDashboard_17561606616710'`, `revision='1.1'`. The dashboard itself: `id='HRDashboard'`, `path='/workbooks/HRAnalyticsDashboard_17561606616710'` | ✓ DIRECTLY VERIFIED |
 | `xml:base` | `https://public.tableau.com` | ✓ DIRECTLY VERIFIED |
-| Author / owner field | No author, owner or `<user>` element is stored | ✗ NOT AVAILABLE |
-| Author evidence (indirect) | Source file paths are `/Users/atharvadevne/Desktop/HR-Analytics-Dashboard-Using-Tableau-main`, so the macOS account was `atharvadevne`. The `-main` suffix is the naming convention produced by downloading a GitHub repository ZIP of a branch called `main`. | △ INFERRED |
+| Author / owner | Atharva Devne. **Confirmed by the author.** The workbook itself stores no author field. | ✓ CONFIRMED BY AUTHOR (not from the file) |
+| Author evidence in the file | Source file paths are `/Users/atharvadevne/Desktop/HR-Analytics-Dashboard-Using-Tableau-main`, so the macOS account was `atharvadevne`. The `-main` suffix is the naming convention produced by downloading a GitHub repository ZIP of a branch called `main`. | ✓ VERIFIED path; the `-main` reading is △ INFERRED |
 | Dashboard dimensions | 1580 x 900 px, `sizing-mode='fixed'` | ✓ DIRECTLY VERIFIED |
 | Dashboard UUID | `{30867C40-EA91-4DA5-AF47-E92ACECA09BD}` | ✓ DIRECTLY VERIFIED |
 | Dashboard-level style | `parameter-ctrl` text `#ffffff`; `parameter-ctrl-title` text `#f1ce63` in `Tableau Semibold` | ✓ DIRECTLY VERIFIED |
@@ -44,7 +44,9 @@ What can be read off the structure (△ INFERRED):
 
 - **Purpose (inferred).** Attrition analysis. `Attrition Count` is the measure behind five of the seven worksheets, and four of the seven worksheet names contain the word "Attrition".
 - **Business question (inferred).** "Who is leaving the organisation, from which departments, education fields, age bands and genders, and how does that sit against headcount and job satisfaction?"
-- **Intended audience (inferred).** HR business partners, a people analytics function, or a hiring manager reviewing attrition. The KPI strip leads with headcount and attrition, which is the standard opening for an HR leadership view.
+- **Project type (confirmed by the author).** **Self-directed. Built for the author's own skill development**, not for a course, a client or an employer.
+- **Dataset origin (confirmed by the author).** **Kaggle.** A public dataset.
+- **Intended audience (inferred).** The design is framed for HR business partners, a people analytics function or HR leadership: the KPI strip leads with headcount and attrition, which is the standard opening for an HR leadership view. In practice the audience is anyone reviewing the author's portfolio.
 - **Overall story (inferred).** A title bar with one global Education filter, then a five-tile KPI strip with a companion gender breakdown, then three mid-canvas views splitting attrition by department, headcount by age band and satisfaction by job role, then two lower views splitting attrition by education field and by gender within age band. Every chart is click-to-filter, so the dashboard functions as an exploratory cross-filtering surface rather than a fixed report.
 
 ---
@@ -94,7 +96,6 @@ This workbook contains **five** `<datasource>` elements. One is the parameter co
 | Renamed fields | **Yes**, 10 fields carry captions, 6 of which are the `Name1` pattern. See section 4. |
 | Hidden fields | **Yes**, 4 auto-generated hidden action groups. See section 5. |
 | Geographic roles | **None.** No map is used. |
-| Row count | The `.hyper` extracts are binary and no Hyper reader is available. ✗ NOT AVAILABLE |
 
 ### 2.3 The 39 source columns (identical across all four data sources)
 
@@ -1194,7 +1195,7 @@ FINAL USER EXPERIENCE
 
 Use this as a spoken narrative. Everything in it is supported by the workbook.
 
-> "This is an HR attrition dashboard. The dataset is employee-level, 39 columns, one row per employee, with an attrition flag, department, education field and level, gender, job role, a job satisfaction score, age and a pre-computed age band.
+> "This is an HR attrition dashboard I built for myself, to practise metric design and interaction design rather than just chart building. The dataset is a public employee-level set from Kaggle, 39 columns, one row per employee, with an attrition flag, department, education field and level, gender, job role, a job satisfaction score, age and a pre-computed age band.
 >
 > The problem I set out to solve was that HR teams usually know their overall attrition number and almost nothing about where it concentrates. So I built the dashboard as a cross-filtering surface rather than a static report. Every chart on it is clickable, and clicking anything re-filters everything else including the headline numbers.
 >
